@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#aca495">
+    <meta name="robots" content="noindex,follow">
+    <meta name="description" content="Страница не найдена. Вернитесь на главную сайта «Бахур и мускус».">
+    <title>Страница не найдена — Бахур и мускус</title>
+    <link rel="icon" type="image/svg+xml" href="logo.svg">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+      .not-found-body { padding-bottom: 0; }
+      .not-found-page { min-height: 100svh; display: grid; place-items: center; padding: clamp(28px, 6vw, 78px) 7% 100px; background: radial-gradient(ellipse at 15% 85%, rgba(172,164,149,.2), transparent 35%), #f5f5f2; }
+      .not-found-card { position: relative; isolation: isolate; width: min(760px, 100%); min-height: min(550px, 68vw); display: grid; grid-template-columns: 1fr; align-items: center; overflow: hidden; border-radius: 5px; background: #e9e8e2; box-shadow: 0 22px 70px rgba(39,29,23,.12); }
+      .not-found-copy { z-index: 1; align-self: center; padding: clamp(35px, 7vw, 88px); }
+      .not-found-copy .eyebrow { margin-bottom: 22px; }
+      .not-found-number { margin: 0 0 8px; color: #412e27; font-size: clamp(104px, 17vw, 218px); font-weight: 700; line-height: .76; letter-spacing: -.095em; }
+      .not-found-title { max-width: 440px; margin: 27px 0 14px; font-size: clamp(31px, 4.1vw, 50px); line-height: 1.03; }
+      .not-found-text { max-width: 350px; margin: 0 0 30px; color: #686861; font-size: 14px; line-height: 1.75; }
+      .not-found-actions { display: flex; flex-wrap: wrap; gap: 11px; align-items: center; }
+      .not-found-secondary { min-height: 49px; display: inline-flex; align-items: center; padding: 13px 17px; border: 1px solid rgba(65,46,39,.32); border-radius: 3px; font-size: 12px; font-weight: 600; transition: background .2s, color .2s; }
+      .not-found-secondary:hover { background: #412e27; color: white; }
+      @media (max-width: 700px) {
+        .not-found-page { min-height: 100svh; padding: 24px 5% 40px; }
+        .not-found-card { min-height: 0; }
+        .not-found-copy { padding: 30px 25px 34px; }
+        .not-found-number { font-size: clamp(112px, 34vw, 170px); }
+        .not-found-copy .eyebrow { margin-bottom: 16px; }
+        .not-found-title { margin-top: 20px; }
+        .not-found-text { font-size: 13px; }
+      }
+    </style>
+  </head>
+  <body class="not-found-body">
+    <main class="not-found-page">
+      <section class="not-found-card" aria-labelledby="not-found-title">
+        <div class="not-found-copy">
+          <p class="eyebrow"><span class="eyebrow-line"></span> бахур и мускус · страница не найдена</p>
+          <p class="not-found-number" aria-hidden="true">404</p>
+          <h1 class="not-found-title" id="not-found-title">Ой, страница не найдена</h1>
+          <p class="not-found-text">Кажется вы нашли секретную страницу, хи-хи. Попробуйте ещё раз, кликнув «На главную». Если ошибка повторяется, сделайте скрин экрана, скопируйте ссылку, на которой вы сейчас находитесь и пришлите её нам в сообщения.</p>
+          <div class="not-found-actions">
+            <a class="primary-button" href="index.html">На главную<span aria-hidden="true">↗</span></a>
+            <a class="not-found-secondary" href="https://t.me/bahur_kazan_help" target="_blank" rel="noreferrer">Написать нам</a>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

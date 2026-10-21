@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#E6E7E5">
+    <meta name="description" content="Подберите свой аромат тахара с Bahur.">
+    <title>Бахур и мускус — подбор аромата</title>
+    <link rel="icon" type="image/svg+xml" href="logo.svg">
+    <link rel="stylesheet" href="styles.css">
+    <script src="mcatalog/musk-data.js" defer></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body data-step="consent">
+    <header class="site-header">
+      <a class="brand" href="#" aria-label="Бахур и мускус — на главную">
+        <img class="brand-logo" src="logo.svg" alt="">
+        <span class="brand-name">бахур и мускус<span>ароматы для тела и дома</span></span>
+      </a>
+
+      <div class="header-actions">
+        <button class="cart-button" id="cart-open" type="button" aria-label="Открыть корзину">
+          <span>Корзина</span>
+          <span class="cart-count" id="cart-count">0</span>
+        </button>
+      </div>
+    </header>
+    <div class="announcement-bar" role="status" aria-label="29 октября клиентский день в Казани, улица Ремесленная, 8">
+      <div class="announcement-track" aria-hidden="true"><span>29 октября Клиентский день в Казани на ул. Ремесленная, 8</span></div>
+    </div>
+
+    <main class="journey" id="journey">
+      <section class="consent-screen flow-screen" id="consent-screen" aria-labelledby="consent-title">
+        <div class="consent-panel">
+          <p class="eyebrow"><span class="eyebrow-line"></span> бахур и мускус · важное</p>
+          <h1 id="consent-title">Перед покупкой мы просим соблюдать два простых, но важных условия</h1>
+          <div class="consent-copy">
+            <p><strong>1. Аромат используется только дома</strong><br>Вы соглашаетесь, что не будете использовать его на выход или в местах, где запах могут почувствовать посторонние мужчины. Исключением могут быть лёгкие мускусы, которые в индивидуальном порядке можно использовать на улице — если вы убедились, что аромат не распространяется вокруг.</p>
+            <p><strong>2. Аромат не используется в качестве подарка на немусульманские праздники</strong><br>Мы не продаём ароматы для таких целей.</p>
+          </div>
+          <button class="primary-button consent-accept" id="accept-consent" type="button">Принимаю условия <span>↗</span></button>
+          <button class="consent-decline" id="decline-consent" type="button">Не принимаю</button>
+        </div>
+      </section>
+
+      <section class="declined-screen flow-screen is-hidden" id="declined-screen" aria-live="polite">
+        <div class="declined-copy"><p>Пока мы не можем открыть для тебя мир ароматов. Ты можешь вернуться и принять условия в любое время</p><button class="primary-button" id="retry-consent" type="button">Посмотреть условия ещё раз <span>↗</span></button></div>
+      </section>
+
+      <section class="welcome-screen flow-screen is-hidden" id="welcome-screen" aria-labelledby="welcome-title">
+        <div class="welcome-copy">
+          <p class="eyebrow"><span class="eyebrow-line"></span> шаг 01 · знакомство</p>
+          <h1 id="welcome-title">Для кого ищем аромат?</h1>
+          <p class="welcome-text">Ответь на пару вопросов — и мы подберём тебе мускус.</p>
+          <div class="gender-options" aria-label="Выберите пол">
+            <button class="gender-card" type="button" data-gender="Женский"><span class="gender-title">Женский</span><span class="gender-arrow">↗</span></button>
+            <button class="gender-card" type="button" data-gender="Мужской"><span class="gender-title">Мужской</span><span class="gender-arrow">↗</span></button>
+          </div>
+          <p class="privacy-note">Выбор можно изменить в любой момент</p>
+        </div>
+      </section>
+
+      <section class="quiz-screen flow-screen is-hidden" id="quiz-screen" aria-labelledby="quiz-title">
+        <div class="quiz-heading">
+          <div>
+            <p class="eyebrow"><span class="eyebrow-line"></span> шаг 02 · твои предпочтения</p>
+            <h2 id="quiz-title">Какие ароматы<br>тебе близки?</h2>
+          </div>
+          <button class="change-gender" id="change-gender" type="button">← Назад</button>
+        </div>
+        <div class="quiz-controls">
+          <p>Выбери три семейства <span id="selection-count">Выбрано 0 из 3</span></p>
+          <label class="toggle-control">
+            <span class="toggle-copy"><strong>Для новичков</strong><small>Только мягкие и понятные ароматы</small></span>
+            <input type="checkbox" id="beginner-toggle">
+            <span class="toggle-ui" aria-hidden="true"></span>
+          </label>
+        </div>
+        <div class="scent-wheel" id="scent-wheel" aria-label="Выберите три направления ароматов">
+          <button class="scent-choice scent-clean" data-scent="Ароматы чистоты" type="button"><span>Ароматы<br>чистоты</span><i>01</i></button>
+          <button class="scent-choice scent-sweet" data-scent="Сладкие" type="button"><span>Сладкие</span><i>02</i></button>
+          <button class="scent-choice scent-floral" data-scent="Цветочные" type="button"><span>Цветочные</span><i>03</i></button>
+          <button class="scent-choice scent-fruity" data-scent="Фруктовые" type="button"><span>Фруктовые</span><i>04</i></button>
+          <div class="wheel-center"><span class="center-flower">✳</span><span>выбери<br>своё</span></div>
+          <button class="scent-choice scent-citrus" data-scent="Цитрусовые" type="button"><span>Цитрусовые</span><i>05</i></button>
+          <button class="scent-choice scent-green" data-scent="Свежие зелёные" type="button"><span>Свежие<br>зелёные</span><i>06</i></button>
+          <button class="scent-choice scent-woody" data-scent="Древесные" type="button"><span>Древесные</span><i>07</i></button>
+          <button class="scent-choice scent-oriental" data-scent="Восточные" type="button"><span>Восточные</span><i>08</i></button>
+        </div>
+        <div class="quiz-bottom">
+          <p>Не думай долго — выбирай то, что откликается.</p>
+          <button class="primary-button" id="show-results" type="button" disabled>Показать мою подборку <span>↗</span></button>
+        </div>
+      </section>
+
+      <section class="results-section flow-screen is-hidden" id="results" aria-labelledby="results-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow"><span class="eyebrow-line"></span> создано для тебя</p>
+            <h2 id="results-title">Твоя подборка</h2>
+          </div>
+          <button class="text-button" id="edit-preferences" type="button">Изменить предпочтения ↗</button>
+        </div>
+        <p class="results-description" id="results-description"></p>
+        <div class="product-grid" id="recommendations"></div>
+        <div class="empty-state is-hidden" id="empty-state">
+          <span>✳</span>
+          <h3>Пока не нашли точное совпадение</h3>
+          <p>Попробуй изменить предпочтения или посмотри все ароматы в каталоге.</p>
+          <a class="primary-button" href="catalog/index.html">Перейти в каталог <span>↗</span></a>
+        </div>
+      </section>
+    </main>
+
+    <dialog class="site-modal info-modal" id="about-modal">
+      <section class="about-section" id="about">
+        <span class="about-star">✳</span>
+        <p class="eyebrow">о наших ароматах</p>
+        <h2>Близко к коже.<br><em>Близко к тебе.</em></h2>
+        <p>Мускус тахара — это личный ароматный ритуал. Несколько капель на коже, и день становится чуточку твоим. Найди своё звучание среди нашей коллекции.</p>
+      </section>
+      <button class="modal-close" type="button" aria-label="Закрыть окно">×</button>
+    </dialog>
+
+    <dialog class="site-modal contacts-modal" id="contacts-modal" aria-label="Контакты">
+      <button class="modal-close" type="button" aria-label="Закрыть окно">×</button>
+      <div class="contacts-content">
+        <h2>Контакты</h2>
+        <a href="https://t.me/bahur_kazan_help" target="_blank" rel="noreferrer">Написать нам ↗</a>
+        <a href="https://t.me/bahur_kazan" target="_blank" rel="noreferrer">Телеграм-канал ↗</a>
+        <a href="https://vk.ru/bahur_kazan" target="_blank" rel="noreferrer">ВКонтакте ↗</a>
+        <a href="https://www.instagram.com/bahur.musk/" target="_blank" rel="noreferrer">Instagram* ↗</a>
+        <p class="contacts-legal">* Meta Platforms Inc. признана экстремистской организацией, её деятельность запрещена на территории РФ.</p>
+        <p class="contacts-legal contacts-copyright">© 2026 bahurmusk.ru<br>Сайт носит информационный характер и не является публичной офертой.</p>
+      </div>
+    </dialog>
+
+    <nav class="bottom-nav" aria-label="Нижняя навигация">
+      <button type="button" id="home-nav" aria-label="На главную">
+        <svg class="nav-icon nav-home" viewBox="0 0 24 24" aria-hidden="true"><path d="m3.5 10.5 8.5-7 8.5 7v10h-6v-6h-5v6h-6z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7"/></svg>
+        <span>На главную</span>
+      </button>
+      <a href="faq/index.html" aria-label="Справочник"><span class="nav-icon nav-faq" aria-hidden="true">?</span><span>Справочник</span></a>
+      <a href="catalog/index.html" aria-label="Каталог"><span class="nav-icon nav-grid" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span>Каталог</span></a>
+      <a href="offers/index.html" aria-label="Акции"><svg class="nav-icon nav-gift" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10h18v11H3zM2 6h20v4H2zM12 6v15M12 6H7.8a2.3 2.3 0 1 1 2.1-3.2C11.2 4.4 12 6 12 6Zm0 0h4.2a2.3 2.3 0 1 0-2.1-3.2C12.8 4.4 12 6 12 6Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Акции</span></a>
+      <button type="button" data-modal-open="contacts-modal" aria-label="Контакты"><span class="nav-icon nav-message" aria-hidden="true">···</span><span>Контакты</span></button>
+    </nav>
+
+    <div class="drawer-backdrop" id="drawer-backdrop"></div>
+    <aside class="cart-drawer" id="cart-drawer" aria-label="Корзина" aria-hidden="true">
+      <div class="drawer-heading">
+        <div><p class="eyebrow">твой выбор</p><h2>Корзина <span id="drawer-count">0</span></h2></div>
+        <button class="close-drawer" id="cart-close" type="button" aria-label="Закрыть корзину">×</button>
+      </div>
+      <div class="cart-items" id="cart-items"></div>
+      <div class="cart-summary" id="cart-summary">
+        <div><span>Итого</span><strong id="cart-total">0 ₽</strong></div>
+        <a class="primary-button checkout-button" href="https://t.me/bahur_kazan_help" target="_blank" rel="noreferrer">Оформить заказ <span>↗</span></a>
+        <p class="checkout-note">Для оформления заказа сделайте скрин корзины, нажмите <strong>Оформить заказ</strong> и пришлите нам в Telegram</p>
+      </div>
+    </aside>
+
+    <template id="product-template">
+      <article class="product-card">
+        <div class="product-image-wrap">
+          <img class="product-image" alt="" loading="lazy">
+          <div class="product-stickers is-hidden" aria-label="Плашки товара"></div>
+        </div>
+        <div class="product-content">
+          <div class="product-topline"><span class="product-gender"></span></div>
+          <h3 class="product-name"></h3>
+          <p class="product-description"></p>
+          <div class="product-buy">
+            <label class="size-select-label">Объём
+              <select class="size-select" aria-label="Выберите объём"></select>
+            </label>
+            <button class="add-to-cart" type="button" aria-label="Добавить в корзину">+</button>
+          </div>
+          <p class="product-price"></p>
+        </div>
+      </article>
+    </template>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <script>
+document.addEventListener('contextmenu', function(event) {
+  event.preventDefault();
+});
+</script>
+  </body>
+</html>
