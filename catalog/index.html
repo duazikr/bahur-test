@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#aca495">
+    <meta name="description" content="Каталог Бахур и мускус: описания ароматов, объёмы и цены.">
+    <meta name="robots" content="index,follow">
+    <title>Каталог товаров Бахур и мускус</title>
+    <link rel="icon" type="image/svg+xml" href="../logo.svg">
+    <script>try { if (localStorage.getItem("bahur-consent") !== "true") location.replace("../index.html?consent=retry"); } catch (_) { location.replace("../index.html?consent=retry"); }</script>
+    <link rel="stylesheet" href="../styles.css">
+    <script src="../mcatalog/musk-data.js" defer></script>
+    <script src="../app.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="../index.html" aria-label="Bahur — на главную">
+        <img class="brand-logo" src="../logo.svg" alt="">
+        <span class="brand-name">бахур и мускус<span>ароматы для тела и дома</span></span>
+      </a>
+      <div class="header-actions">
+        <button class="cart-button" id="cart-open" type="button" aria-label="Открыть корзину">
+          <span>Корзина</span>
+          <span class="cart-count" id="cart-count">0</span>
+        </button>
+      </div>
+    </header>
+    <div class="announcement-bar" role="status" aria-label="29 октября клиентский день в Казани, улица Ремесленная, 8">
+      <div class="announcement-track" aria-hidden="true"><span>29 октября Клиентский день в Казани на ул. Ремесленная, 8</span></div>
+    </div>
+    <main>
+      <section class="catalog-section">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow"><span class="eyebrow-line"></span> Каталог товаров</p>
+            <h1 class="catalog-title">В наличии</h1>
+          </div>
+          <span class="catalog-count" id="catalog-count"></span>
+        </div>
+        <div class="catalog-filters" aria-label="Фильтр товаров">
+          <label class="catalog-search-label">Поиск по товарам
+            <input id="catalog-search" type="search" placeholder="Хочу купить" autocomplete="off">
+          </label>
+          <label>Подкатегория
+            <select id="catalog-category"><option value="">Все подкатегории</option></select>
+          </label>
+          <label>Аромат для
+            <select id="catalog-gender">
+              <option value="">Для всех</option>
+              <option value="Женский">Женщин</option>
+              <option value="Мужской">Мужчин</option>
+              <option value="Детский">Детей</option>
+            </select>
+          </label>
+          <button class="catalog-filter-reset" id="catalog-filter-reset" type="button">Сбросить</button>
+        </div>
+        <div class="product-grid catalog-grid" id="all-products"></div>
+        <p class="catalog-empty is-hidden" id="catalog-empty">По этим фильтрам товаров не найдено.</p>
+      </section>
+    </main>
+    <nav class="bottom-nav" aria-label="Нижняя навигация">
+      <a href="../index.html" aria-label="На главную">
+        <svg class="nav-icon nav-home" viewBox="0 0 24 24" aria-hidden="true"><path d="m3.5 10.5 8.5-7 8.5 7v10h-6v-6h-5v6h-6z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7"/></svg>
+        <span>На главную</span>
+      </a>
+      <a href="../faq/index.html" aria-label="Справочник"><span class="nav-icon nav-faq" aria-hidden="true">?</span><span>Справочник</span></a>
+      <a href="./" aria-label="Каталог"><span class="nav-icon nav-grid" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span>Каталог</span></a>
+      <a href="../offers/index.html" aria-label="Акции"><svg class="nav-icon nav-gift" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10h18v11H3zM2 6h20v4H2zM12 6v15M12 6H7.8a2.3 2.3 0 1 1 2.1-3.2C11.2 4.4 12 6 12 6Zm0 0h4.2a2.3 2.3 0 1 0-2.1-3.2C12.8 4.4 12 6 12 6Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Акции</span></a>
+      <button type="button" data-modal-open="contacts-modal" aria-label="Контакты"><span class="nav-icon nav-message" aria-hidden="true">···</span><span>Контакты</span></button>
+    </nav>
+    <dialog class="site-modal info-modal" id="about-modal">
+      <section class="about-section">
+        <span class="about-star">✳</span>
+        <p class="eyebrow">о наших ароматах</p>
+        <h2>Близко к коже.<br><em>Близко к тебе.</em></h2>
+        <p>Мускус тахара — это личный ароматный ритуал. Несколько капель на коже, и день становится чуточку твоим. Найди своё звучание среди нашей коллекции.</p>
+      </section>
+      <button class="modal-close" type="button" aria-label="Закрыть окно">×</button>
+    </dialog>
+    <dialog class="site-modal contacts-modal" id="contacts-modal" aria-label="Контакты">
+      <button class="modal-close" type="button" aria-label="Закрыть окно">×</button>
+      <div class="contacts-content">
+        <h2>Контакты</h2>
+        <a href="https://t.me/bahur_kazan_help" target="_blank" rel="noreferrer">Написать нам ↗</a>
+        <a href="https://t.me/bahur_kazan" target="_blank" rel="noreferrer">Телеграм-канал ↗</a>
+        <a href="https://vk.ru/bahur_kazan" target="_blank" rel="noreferrer">ВКонтакте ↗</a>
+        <a href="https://www.instagram.com/bahur.musk/" target="_blank" rel="noreferrer">Instagram* ↗</a>
+        <p class="contacts-legal">* Meta Platforms Inc. признана экстремистской организацией, её деятельность запрещена на территории РФ.</p>
+        <p class="contacts-legal contacts-copyright">© 2026 bahurmusk.ru<br>Сайт носит информационный характер и не является публичной офертой.</p>
+      </div>
+    </dialog>
+    <div class="drawer-backdrop" id="drawer-backdrop"></div>
+    <aside class="cart-drawer" id="cart-drawer" aria-label="Корзина" aria-hidden="true">
+      <div class="drawer-heading">
+        <div><p class="eyebrow">твой выбор</p><h2>Корзина <span id="drawer-count">0</span></h2></div>
+        <button class="close-drawer" id="cart-close" type="button" aria-label="Закрыть корзину">×</button>
+      </div>
+      <div class="cart-items" id="cart-items"></div>
+      <div class="cart-summary" id="cart-summary">
+        <div><span>Итого</span><strong id="cart-total">0 ₽</strong></div>
+        <a class="primary-button checkout-button" href="https://t.me/bahur_kazan_help" target="_blank" rel="noreferrer">Оформить заказ <span>↗</span></a>
+        <p class="checkout-note">Для оформления заказа сделайте скрин корзины, нажмите <strong>Оформить заказ</strong> и пришлите нам в Telegram</p>
+      </div>
+    </aside>
+    <template id="product-template">
+      <article class="product-card">
+        <div class="product-image-wrap">
+          <img class="product-image" alt="" loading="lazy">
+          <div class="product-stickers is-hidden" aria-label="Плашки товара"></div>
+        </div>
+        <div class="product-content">
+          <div class="product-topline"><span class="product-gender"></span><span class="beginner-badge is-hidden">для новичков</span></div>
+          <h3 class="product-name"></h3>
+          <p class="product-description"></p>
+          <div class="product-buy">
+            <label class="size-select-label">Объём
+              <select class="size-select" aria-label="Выберите объём"></select>
+            </label>
+            <button class="add-to-cart" type="button" aria-label="Добавить в корзину">+</button>
+          </div>
+          <p class="product-price"></p>
+        </div>
+      </article>
+    </template>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>
